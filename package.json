@@ -19,7 +19,7 @@
 	},
   "keywords": [],
   "author": "Julián Andrés Lasso Figueroa",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {},
   "dependencies": {},
   "devDependencies": {
