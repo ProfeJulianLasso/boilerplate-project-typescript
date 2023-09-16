@@ -1,14 +1,27 @@
 {
   "name": "boilerplate-project-typescript",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Configuración base para iniciar un proyecto con typescript",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "node -r tsconfig-paths/register dist/app.js",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"test:cov": "jest --coverage",
+		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+		"clean": "rimraf ./dist && rimraf ./coverage",
+		"build": "npm run clean && tsc -p tsconfig.build.json",
+		"lint": "eslint 'src/**/*.ts' 'tests/**/*.ts'",
+		"fix": "eslint --fix 'src/**/*.ts' 'tests/**/*.ts'",
+		"format": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'",
+		"prepare": "husky install",
+    "dup": "jscpd --pattern 'src/**/*.ts' --reporters 'consoleFull,console,html' --mode 'strict' --min-lines 5 --min-tokens 70 --output './report'"
+	},
   "keywords": [],
-  "author": "",
+  "author": "Julián Andrés Lasso Figueroa",
   "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
